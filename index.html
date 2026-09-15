@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Homework Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <header class="top-bar">
+            <div>
+                <h1>Homework</h1>
+                <p id="todayDate"></p>
+            </div>
+        </header>
+
+        <section id="classList" class="class-list"></section>
+
+    </main>
+
+    <button id="quickAddButton" class="quick-add-button">
+        + Quick Add
+    </button>
+
+
+    <!-- Quick Add Sheet -->
+    <div id="quickAddOverlay" class="overlay hidden">
+
+        <div class="quick-add-sheet">
+
+            <div class="sheet-header">
+                <h2>Quick Add</h2>
+
+                <button id="closeQuickAdd" class="close-button">
+                    ×
+                </button>
+            </div>
+
+            <label for="className">Class</label>
+           <select id="className">
+    <option value="Operating Systems">Operating Systems</option>
+    <option value="Programming Languages">Programming Languages</option>
+    <option value="Programming Techniques">Programming Techniques</option>
+    <option value="Computational Thinking">Computational Thinking</option>
+</select>
+
+            <label for="assignmentTitle">Assignment</label>
+            <input
+                id="assignmentTitle"
+                type="text"
+                placeholder="Program 3"
+            >
+
+            <label>Due</label>
+
+            <div class="date-shortcuts">
+                <button id="todayButton">Today</button>
+                <button id="tomorrowButton">Tomorrow</button>
+            </div>
+
+            <input
+                id="dueDate"
+                type="date"
+            >
+
+            <label for="dueTime">Time</label>
+
+            <input
+                id="dueTime"
+                type="time"
+                value="23:59"
+            >
+
+            <button id="addAssignmentButton" class="add-assignment-button">
+                Add Assignment
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
