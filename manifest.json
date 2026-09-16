@@ -6,7 +6,6 @@
     "background_color": "#111111",
     "theme_color": "#111111",
     "description": "A simple personal homework and assignment tracker.",
-
     "icons": [
         {
             "src": "icons/icon-192.png",

@@ -6,28 +6,48 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+
     background: #111;
     color: #f5f5f5;
+
     min-height: 100vh;
 }
 
 button,
-input {
+input,
+select {
     font: inherit;
 }
 
-button {
+button,
+select {
     cursor: pointer;
 }
 
+
 .app {
     max-width: 700px;
+
     margin: 0 auto;
-    padding: 24px 18px 120px;
+
+    padding:
+        24px
+        18px
+        120px;
 }
+
+
+/* HEADER */
 
 .top-bar {
     margin-bottom: 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 15px;
 }
 
 .top-bar h1 {
@@ -41,7 +61,22 @@ button {
 }
 
 
-/* Classes */
+/* VIEW FILTER */
+
+.view-range {
+    background: #1c1c1c;
+    color: white;
+
+    border: 1px solid #333;
+    border-radius: 10px;
+
+    padding: 9px 10px;
+
+    font-size: 14px;
+}
+
+
+/* CLASSES */
 
 .class-card {
     margin-bottom: 35px;
@@ -54,169 +89,37 @@ button {
 
 .assignment-heading {
     color: #888;
+
     font-size: 13px;
+
     text-transform: uppercase;
     letter-spacing: 1px;
+
     margin-bottom: 10px;
 }
 
+.empty-message {
+    color: #666;
+
+    font-size: 14px;
+
+    padding: 8px 2px;
+}
+
+
+/* ASSIGNMENTS */
+
 .assignment {
     background: #1c1c1c;
+
     border-radius: 12px;
+
     padding: 15px;
+
     margin-bottom: 9px;
-}
 
-.assignment-title {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.assignment-date {
-    color: #aaa;
-    font-size: 14px;
-}
-
-.empty-message {
-    color: #777;
-    padding: 30px 0;
-}
-
-
-/* Quick Add */
-
-.quick-add-button {
-    position: fixed;
-
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: calc(100% - 36px);
-    max-width: 664px;
-
-    border: none;
-    border-radius: 15px;
-
-    padding: 17px;
-
-    font-size: 17px;
-    font-weight: bold;
-
-    background: #fff;
-    color: #111;
-}
-
-
-/* Overlay */
-
-.overlay {
-    position: fixed;
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.7);
-
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.hidden {
-    display: none;
-}
-
-.quick-add-sheet {
-    width: 100%;
-    max-width: 700px;
-
-    background: #1a1a1a;
-
-    padding: 22px 18px 30px;
-
-    border-radius: 22px 22px 0 0;
-}
-
-.sheet-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin-bottom: 20px;
-}
-
-.sheet-header h2 {
-    font-size: 23px;
-}
-
-.close-button {
-    background: none;
-    border: none;
-    color: #aaa;
-
-    font-size: 32px;
-}
-
-.quick-add-sheet label {
-    display: block;
-
-    margin-top: 15px;
-    margin-bottom: 7px;
-
-    color: #aaa;
-    font-size: 14px;
-}
-
-.quick-add-sheet input,
-.quick-add-sheet select {
-    width: 100%;
-
-    background: #292929;
-    color: white;
-
-    border: 1px solid #383838;
-    border-radius: 10px;
-
-    padding: 13px;
-}
-
-.date-shortcuts {
-    display: flex;
-    gap: 8px;
-
-    margin-bottom: 8px;
-}
-
-.date-shortcuts button {
-    flex: 1;
-
-    background: #292929;
-    color: white;
-
-    border: 1px solid #383838;
-    border-radius: 10px;
-
-    padding: 11px;
-}
-
-.add-assignment-button {
-    width: 100%;
-
-    margin-top: 22px;
-
-    border: none;
-    border-radius: 12px;
-
-    padding: 15px;
-
-    background: white;
-    color: black;
-
-    font-weight: bold;
-}
-
-.assignment {
     cursor: pointer;
+
     transition: 0.2s ease;
 }
 
@@ -226,16 +129,35 @@ button {
 
 .assignment-main {
     display: flex;
+
     justify-content: space-between;
-    gap: 15px;
     align-items: center;
+
+    gap: 15px;
+}
+
+.assignment-title {
+    font-size: 17px;
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+.assignment-date {
+    color: #aaa;
+    font-size: 14px;
 }
 
 .assignment-status {
     font-size: 12px;
+
     font-weight: bold;
+
     white-space: nowrap;
 }
+
+
+/* DUE STATUS */
 
 .assignment.overdue {
     border-left: 4px solid #ff4d4d;
@@ -265,9 +187,14 @@ button {
     border-left: 4px solid #444;
 }
 
+
+/* ASSIGNMENT ACTIONS */
+
 .assignment-actions {
     display: flex;
+
     gap: 8px;
+
     margin-top: 14px;
 }
 
@@ -293,4 +220,178 @@ button {
 
 .assignment-actions.hidden {
     display: none;
+}
+
+
+/* QUICK ADD BUTTON */
+
+.quick-add-button {
+    position: fixed;
+
+    bottom: 20px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: calc(100% - 36px);
+    max-width: 664px;
+
+    border: none;
+    border-radius: 15px;
+
+    padding: 17px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    background: #fff;
+    color: #111;
+}
+
+
+/* QUICK ADD OVERLAY */
+
+.overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+.quick-add-sheet {
+    width: 100%;
+    max-width: 700px;
+
+    background: #1a1a1a;
+
+    padding:
+        22px
+        18px
+        30px;
+
+    border-radius:
+        22px
+        22px
+        0
+        0;
+}
+
+.sheet-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.sheet-header h2 {
+    font-size: 23px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+
+    color: #aaa;
+
+    font-size: 32px;
+}
+
+.quick-add-sheet label {
+    display: block;
+
+    margin-top: 15px;
+    margin-bottom: 7px;
+
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+.quick-add-sheet input,
+.quick-add-sheet select {
+    width: 100%;
+
+    background: #292929;
+    color: white;
+
+    border: 1px solid #383838;
+    border-radius: 10px;
+
+    padding: 13px;
+}
+
+
+/* DATE SHORTCUTS */
+
+.date-shortcuts {
+    display: flex;
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+}
+
+.date-shortcuts button {
+    flex: 1;
+
+    background: #292929;
+    color: white;
+
+    border: 1px solid #383838;
+    border-radius: 10px;
+
+    padding: 11px;
+}
+
+
+/* ADD BUTTON */
+
+.add-assignment-button {
+    width: 100%;
+
+    margin-top: 22px;
+
+    border: none;
+    border-radius: 12px;
+
+    padding: 15px;
+
+    background: white;
+    color: black;
+
+    font-weight: bold;
+}
+
+
+/* SMALL SCREEN */
+
+@media (max-width: 500px) {
+
+    .top-bar h1 {
+        font-size: 29px;
+    }
+
+    .view-range {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .assignment-main {
+        align-items: flex-start;
+    }
+
 }
